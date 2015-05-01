@@ -7,6 +7,11 @@
     "test": "node test.js"
   },
   "author": "kumavis",
+  "homepage": "https://github.com/kumavis/fifo-transform",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kumavis/fifo-transform.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "from": "^0.1.3",
