@@ -5,7 +5,7 @@ Use before sending over a transport that doesn't guarantee fifo ordering.
 
 
 ```js
-var fifoTransform = require('fifoTransform')
+var fifoTransform = require('fifo-transform')
 var wrapper = new fifoTransform.wrap()
 var unwrapper = new fifoTransform.unwrap()
 
