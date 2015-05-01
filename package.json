@@ -1,0 +1,15 @@
+{
+  "name": "fifo-transform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "kumavis",
+  "license": "ISC",
+  "devDependencies": {
+    "from": "^0.1.3",
+    "tape": "^4.0.0"
+  }
+}
