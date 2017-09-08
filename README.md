@@ -1,5 +1,7 @@
 ### Fifo Transform
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kumavis/fifo-transform.svg)](https://greenkeeper.io/)
+
 Layer on ordering to your stream.
 Use before sending over a transport that doesn't guarantee fifo ordering.
 
