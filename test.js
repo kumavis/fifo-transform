@@ -1,11 +1,15 @@
-var test = require('tape')
-var from = require('from')
-var fifoTransform = require('./index.js')
+const test = require('tape')
+const from = require('from')
+const {
+  createFifoWrapper,
+  createFifoUnwrapper,
+} = require('./index.js')
+
 
 
 test('basic test', function (t) {
-  var wrapper = new fifoTransform.wrap()
-  var unwrapper = new fifoTransform.unwrap()
+  var wrapper = createFifoWrapper()
+  var unwrapper = createFifoUnwrapper()
 
   var inputArray = ['1','2','3','4']
   var resultArray = []
@@ -24,8 +28,8 @@ test('basic test', function (t) {
 })
 
 test('out of order test', function (t) {
-  var wrapper = new fifoTransform.wrap()
-  var unwrapper = new fifoTransform.unwrap()
+  var wrapper = createFifoWrapper()
+  var unwrapper = createFifoUnwrapper()
   var chaos = new OrderJumbleTransform()
 
   var inputArray = ['1','2','3','4']
@@ -46,8 +50,8 @@ test('out of order test', function (t) {
 })
 
 test('out of order w/o fifo test', function (t) {
-  var wrapper = new fifoTransform.wrap()
-  var unwrapper = new fifoTransform.unwrap()
+  var wrapper = createFifoWrapper()
+  var unwrapper = createFifoUnwrapper()
   var chaos = new OrderJumbleTransform()
 
   var inputArray = ['1','2','3','4']

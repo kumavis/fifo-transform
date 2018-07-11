@@ -5,14 +5,12 @@ Use before sending over a transport that doesn't guarantee fifo ordering.
 
 
 ```js
-var fifoTransform = require('fifo-transform')
-var wrapper = new fifoTransform.wrap()
-var unwrapper = new fifoTransform.unwrap()
+const { createFifoWrapper, createFifoUnwrapper } = require('fifo-transform')
 
 inputStream
-  .pipe(wrapper)
+  .pipe(createFifoWrapper())
   .pipe(chaos)
-  .pipe(unwrapper)
+  .pipe(createFifoUnwrapper())
   .pipe(outputStream)
 ```
 
@@ -20,12 +18,12 @@ inputStream
 
 We append (and remove) an ordering number to the front of the buffer of a specified length.
 How many messages do you expect to be in a jumble at once?
-It will support up to `Math.pow(2, byteLength * 8)` simultaeneously in-transit messages.
-Default byteLength is 2, allowing 65536 messages to be in jumble at once.
+It will support up to `Math.pow(2, byteLength * 8)` simultaneously in-transit messages.
+Default byteLength is 1, allowing 256 messages to be in jumble at once.
 
 ```js
-var wrapper = new fifoTransform.wrap({ byteLength: 2 })
-var unwrapper = new fifoTransform.unwrap({ byteLength: 2 })
+var wrapper = createFifoWrapper({ byteLength: 2 })
+var unwrapper = createFifoUnwrapper({ byteLength: 2 })
 ```
 
 #### note
